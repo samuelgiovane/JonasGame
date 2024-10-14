@@ -62,7 +62,7 @@ const Blank1 = () => {
       // This allows the obstacle to speed up
       obstacleRef.current.style.animationDuration = `${obstacleSpeed}ms`;
     }, 50); // Check for collision every 50ms
-    scoreTimer = setInterval(incrementScore, 1000); // Increment score every second
+    scoreTimer = setInterval(incrementScore, 600); // Increment score every second
 
     return () => {
       clearInterval(obstacleTimer);
@@ -82,7 +82,7 @@ const Blank1 = () => {
     if (score >= 24) {
       alert("Somebody is 24...");
       // Redirect logic here (e.g., navigate to a new route)
-      window.location.href = '/blank2'; // Modify this line according to your routing setup
+      window.location.href = '/m2n3b4v5c6x7z8a9s0d1f2g3h'; // Modify this line according to your routing setup
     }
   }, [score]);
 

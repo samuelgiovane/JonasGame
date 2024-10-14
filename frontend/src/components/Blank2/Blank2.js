@@ -165,7 +165,7 @@ const Blank2 = () => {
   const handleFinalClick = () => {
     if (completedChallenges.length === codingChallenges.length) {
       setShowWonMessage(true);
-      setTimeout(() => window.location.href = '/blank3', 3000); // Navigate after 3 seconds
+      setTimeout(() => window.location.href = '/j0i9u8y7t6r5e4w3q2l1k0o9m8', 3000); // Navigate after 3 seconds
     }
   };
 
