@@ -2,10 +2,14 @@
   "name": "tantiaugurijonas-backend",
   "version": "0.0.0",
   "private": true,
+  
   "scripts": {
-    "start": "node ./server.js",
-    "publish": "node ./scripts/publish"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
+  
   "dependencies": {
     "cookie-parser": "1.4.5",
     "debug": "2.6.9",
