@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 
 const Blank3 = () => {
   return <main id="mainContent">

@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useHistory } from "react-router-dom"; // Import useHistory for redirection
 import "./Blank.css";
 
@@ -67,7 +67,7 @@ const Blank = () => {
 
   const history = useHistory(); // Hook for programmatic navigation
 
-  const generateBoxes = () => {
+  const generateBoxes = useCallback(() => {
     const container = document.querySelector('.chaotic-container');
     for (let i = 0; i < 20; i++) {
       const box = document.createElement('div');
@@ -88,7 +88,7 @@ const Blank = () => {
           clearTimeout(answerTimeout); // Clear timeout if user answers in time
           if (userAnswer.trim().toLowerCase() === randomQuestion.answer.toLowerCase()) {
             if (randomQuestion.question === "Who is FC Köln's all-time top scorer?") {
-              alert("Correct! Enjoy the net level ❤️ PS: Make sure to save the link otherwise you need to start from scratch...");
+              alert("Correct! Enjoy the next level ❤️ PS: Make sure to save the link otherwise you need to start from scratch...");
               history.push("/z9y8x7w6v5u4t3s2r1q0p9o8n"); // Redirect to the new page
             } else {
               alert("Correct! But you do not move to the next level.");
@@ -96,14 +96,13 @@ const Blank = () => {
               window.open('https://c.tenor.com/NII7Z9YQLsMAAAAC/tenor.gif', '_blank'); // Replace with actual URL
             }
           } else {
-            if (randomQuestion.category === "CS") {
+            if (randomQuestion.category === "cs") {
               alert("Wrong answer! Enjoy some kittens..");
               // Open a random kitten page
-              window.open('https://www.google.com/search?q=happy+kittens&sca_esv=d9880e105989b578&udm=2&biw=1440&bih=657&sxsrf=ADLYWIICFE7U01-lZooANN9Fe413jEL2UQ%3A1728916417737&ei=wSsNZ-XYLIiC9u8P5evAoQ4&ved=0ahUKEwilvbPHi46JAxUIgf0HHeU1MOQQ4dUDCBA&uact=5&oq=happy+kittens&gs_lp=Egxnd3Mtd2l6LXNlcnAiDWhhcHB5IGtpdHRlbnMyBRAAGIAEMgUQABiABDIFEAAYgAQyBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHkjIJFDyHFiRIXADeACQAQCYAUGgAaACqgEBNbgBA8gBAPgBAZgCCKACxwLCAgoQABiABBhDGIoFwgIGEAAYCBgemAMAiAYBkgcBOKAH0h0&sclient=gws-wiz-serp', '_blank'); // Redirect to kittens page
+              window.open('https://www.google.com/search?q=happy+kittens', '_blank'); // Redirect to kittens page
             } else {
               alert("WRONG :(");
             }
-           
           }
         } else {
           clearTimeout(answerTimeout); // Clear timeout if user clicks cancel
@@ -113,11 +112,11 @@ const Blank = () => {
 
       container.appendChild(box);
     }
-  };
+  }, [questions, history]); // Added questions and history as dependencies
 
   useEffect(() => {
     generateBoxes();
-  }, []);
+  }, [generateBoxes]); // Now it only depends on generateBoxes
 
   return (
     <main id="mainContent">

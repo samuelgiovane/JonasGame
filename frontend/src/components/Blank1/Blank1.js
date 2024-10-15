@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./JumpingGame.css"; // You can create this CSS file for styles
 
 const Blank1 = () => {

@@ -1,4 +1,4 @@
-﻿const ENDPOINT = {
+const ENDPOINT = {
   GRID: "/api/grid",
 };
 
