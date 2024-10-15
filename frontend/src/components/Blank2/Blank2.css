@@ -1,0 +1,178 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.chaotic-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #3c3c3c, #7d7d7d, #1c1c1c);
+  animation: backgroundAnimation 10s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background-color: #3c3c3c;
+  }
+  50% {
+    background-color: #7d7d7d;
+  }
+  100% {
+    background-color: #1c1c1c;
+  }
+}
+
+.animated-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.1;
+}
+
+.moving-objects {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.object {
+  font-size: 3rem; /* Base size for the object */
+  margin: 20px;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  cursor: pointer;
+  position: absolute; /* Allowing positioning */
+}
+
+.object:hover {
+  transform: rotate(15deg) scale(1.2);
+  filter: blur(2px);
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.hidden:hover {
+  opacity: 1;
+}
+
+.misleading {
+  animation: misleadingEffect 2s infinite;
+}
+
+@keyframes misleadingEffect {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1000;
+  animation: popupAnimation 0.5s ease-out forwards;
+}
+
+@keyframes popupAnimation {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.challenge-popup {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  background: rgba(255, 255, 255, 0.9);
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1001;
+  animation: popupAnimation 0.5s ease-out forwards;
+}
+
+.challenge-popup textarea {
+  width: 100%;
+  padding: 5px;
+  margin-top: 10px;
+  font-family: monospace;
+}
+
+.challenge-popup button {
+  padding: 5px 10px;
+  margin-left: 5px;
+}
+
+/* Additional styles for feedback messages */
+.feedback {
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1002;
+}
+
+.motivation-message {
+  position: fixed; /* Changed to fixed for centered positioning */
+  color: #ffcc00;
+  font-size: 2rem; /* Increased font size */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Added transform transition */
+  z-index: 1003;
+  animation: jump 1s ease-in-out; /* Added jump animation */
+}
+
+@keyframes jump {
+  0% {
+    transform: translate(-50%, -50%) scale(1); /* Start at normal size */
+  }
+  50% {
+    transform: translate(-50%, -60%) scale(1.5); /* Scale up while jumping */
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1); /* Return to normal */
+  }
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .object {
+    font-size: 2rem; /* Smaller size on mobile */
+  }
+
+  .challenge-popup,
+  .popup {
+    width: 90%; /* Responsive width */
+    padding: 15px; /* Smaller padding */
+  }
+}

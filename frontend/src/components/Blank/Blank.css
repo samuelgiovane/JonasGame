@@ -1,0 +1,91 @@
+/* Blank.css */
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: #f0f8ff; /* Light background */
+    overflow: hidden; /* Prevents scrolling */
+}
+
+.chaotic-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Increased the width and height of the boxes */
+.moving-box {
+    position: absolute;
+    width: 120px; /* Increased size */
+    height: 120px; /* Increased size */
+    background-color: #ff6347; /* Tomato color */
+    border: 2px solid #fff;
+    border-radius: 10px;
+    animation: moveBox 10s linear infinite; /* Slowed down the movement */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer; /* Pointer cursor for clickable boxes */
+    transition: transform 0.3s ease; /* Smooth transformation */
+}
+
+/* Chaotic movement */
+@keyframes moveBox {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(calc(100vw - 120px), calc(100vh - 120px));
+    }
+    50% {
+        transform: translate(0, calc(100vh - 120px));
+    }
+    75% {
+        transform: translate(calc(100vw - 120px), 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Hover effects */
+.moving-box:hover {
+    background-color: #00bfff; /* DodgerBlue */
+    transform: scale(1.1); /* Slightly enlarge box on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    animation-play-state: paused; /* Pause movement when hovered */
+    /* Add a slight movement effect */
+    animation: moveBox 10s linear infinite paused; /* Ensure hover still allows animation */
+}
+
+.funny-message {
+    animation: floatingText 3s ease-in-out infinite; /* Add floating effect */
+}
+
+/* Floating text animation */
+@keyframes floatingText {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Additional styles for more chaos */
+.moving-box:nth-child(odd) {
+    animation-duration: 12s; /* Longer duration for odd boxes */
+}
+
+.moving-box:nth-child(even) {
+    animation-duration: 8s; /* Shorter duration for even boxes */
+}
+
+.moving-box:nth-child(3n) {
+    animation-duration: 10s; /* Medium duration for every third box */
+}
